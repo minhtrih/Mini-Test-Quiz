@@ -1,0 +1,46 @@
+{% extends "basic_template.html" %}
+
+{% block body %}
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="#">Questions</a>
+	</li>
+	<li class="breadcrumb-item active">Language</li>
+</ol>
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-question-circle"></i> <b>And the Codelovers Quiz begins for</b>
+	</div>
+	<div class="card-body">
+		<div class="content-wrap">
+			<form action="/result/{{ m }}" method="POST">
+					{% for i in n %}
+					<div class ="container">
+						<div class="row">
+							<div class="offset-xl-1 col-xl-5 col-sm-6 text-left">
+								<span class="card-title">Question {{i+1}}:</span><br>
+								<span class="card-title">{{quest[i]}}</span><br>
+								{% for j in range(choices[i]) %}
+									<label><input type="radio" name="{{i}}" value="{{ options[i][j] }}"> {{options[i][j]}}</label><br>
+								{% endfor %}
+							</div>
+							<div class="col-xl-6 col-sm-6 text-left" style="height: 100%">
+								<div class="alert alert-secondary" role="alert" style="padding: 1rem">
+									<pre style="color: red">{{ code[i] }}</pre>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr>
+					{% endfor %}
+				<label class="btn btn-success">
+					<i class="fa fa-check fa-fw"></i>
+					<input class="btn btn-success" type="submit" value="Success">
+				</label>		
+			</form>
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}

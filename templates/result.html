@@ -1,0 +1,59 @@
+{% extends "basic_template.html" %}
+
+{% block body %}
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="#">Questions</a>
+	</li>
+	<li class="breadcrumb-item active">Result</li>
+</ol>
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-check-double"></i> <b>Your Result</b>
+	</div>
+	<div class="card-body">
+		<div class="content-wrap">
+			<div class="content-wrap text-center">
+					<h2>Your Result: {{count}}/20</h2>
+					<h3>{{msg}}</h3>
+					<hr>
+			</div>
+			
+			<div class ="wrap text-center">
+		
+				<table class="table table-striped table-bordered" data-effect="fade">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col" width=10%>Question No</th>
+							<th scope="col" width=45%>Your Answer</th>
+							<th scope="col" width=45%>Correct Answer</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for i in range(answer) %}
+
+						<tr>
+							{% if given_ans[i] == correct_ans[i] %}
+								<th class="btn btn-success" scope="row">{{i+1}}</th>
+							{% else %}
+								<th class="btn btn-danger" scope="row">{{i+1}}</th>
+							{% endif %}
+							<th scope="row">{{given_ans[i]}}</th>
+							<th scope="row">{{correct_ans[i]}}</th>
+						</tr>
+						
+						{% endfor %}
+					</tbody>
+				</table>
+			</div> 
+			<hr>
+			<div class="jumbotron" style="padding: 1rem;">
+				<h3 style="text-align: center;">The Graph showing no of correct answers:</h3><br>
+				{{ div_placeholder }}				
+			</div>
+			<hr>
+									
+		</div>
+	</div>
+</div>
+{% endblock %}

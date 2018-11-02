@@ -1,0 +1,37 @@
+{% extends "basic_template.html" %}
+
+{% block body %}
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="#">Questions</a>
+	</li>
+	<li class="breadcrumb-item active">Language</li>
+</ol>
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-list-ul"></i> <b>Select your language programming</b>
+	</div>
+	<div class="card-body">
+		<div class ="wrap text-center">
+			<div class="row">
+				{% for i in range(7) %}
+				<div class="col-xl-3 col-sm-6 mb-3">
+					<div class="alert alert-secondary" role="alert">
+						<a href="/question/{{category_id[i]}}" class="alert-link">
+							<img src="{{url_for('static',filename='image/'+category[i]+'.png')}}" 
+								alt="{{category[i]}}">
+							<hr>
+							<h3>{{category[i]}}</h3>
+						</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<hr>
+		</div>
+	</div>
+	<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+
+{% endblock %}
