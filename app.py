@@ -16,7 +16,7 @@ from xml.sax import saxutils as su
 # Initializing global variables
 app = Flask(__name__)
 app.config['SECRET_KEY']= 'this is a super secure kry'
-app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://root:minhtrih@127.0.0.1/test_quiz'
+app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://bed8084af30a4a:2a853b92@us-cdbr-iron-east-03.cleardb.net/heroku_766c98be9d8d447'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
